@@ -1,16 +1,20 @@
 package objects;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
+    private Point centre;
     private List<Ligne> lines;
+
 
     public Polygone() {
         lines = new ArrayList<>();
     }
 
-    public Polygone(List<Ligne> lines) {
+    public Polygone(Point centre, List<Ligne> lines) {
+        this.centre = centre;
         this.lines = lines;
     }
 
@@ -32,5 +36,13 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
             return -1;
         else
             return 1;
+    }
+
+    @Override
+    public String toString() {
+        return "Polygone{" +
+                "centre=" + centre +
+                ", lines=" + lines +
+                '}';
     }
 }

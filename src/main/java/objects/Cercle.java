@@ -1,16 +1,25 @@
 package objects;
 
-public class Cercle extends FormeGeometrique implements Comparable<Cercle>{
+import java.awt.*;
+
+public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
+    private Point centre;
     private Double rayon;
+
+
+    public Cercle(Point centre, Double rayon) {
+        this.centre = centre;
+        this.rayon = rayon;
+    }
 
     @Override
     public Double calculerPerimetre() {
-        return null;
+        return 2 * Math.PI * rayon;
     }
 
     @Override
     public Double calculerAire() {
-        return null;
+        return rayon * rayon * Math.PI;
     }
 
     @Override
@@ -21,5 +30,13 @@ public class Cercle extends FormeGeometrique implements Comparable<Cercle>{
             return -1;
         else
             return 1;
+    }
+
+    @Override
+    public String toString() {
+        return "Cercle{" +
+                "centre=" + centre +
+                ", rayon=" + rayon +
+                '}';
     }
 }

@@ -6,6 +6,12 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
     private Point depart, arrive;
     private Double longeur;
 
+    public Ligne(Point depart, Point arrive, Double longeur) {
+        this.depart = depart;
+        this.arrive = arrive;
+        this.longeur = longeur;
+    }
+
     @Override
     public Double calculerPerimetre() {
         return longeur;
@@ -18,10 +24,19 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
 
     @Override
     public int compareTo(Ligne o) {
-        if (this.longeur == o.longeur)
+        if (this.calculerPerimetre() == o.calculerPerimetre())
             return 0;
-        else if (this.longeur < o.longeur)
+        else if (this.calculerPerimetre() < o.calculerPerimetre())
             return -1;
         else return 1;
+    }
+
+    @Override
+    public String toString() {
+        return "Ligne{" +
+                "depart=" + depart +
+                ", arrive=" + arrive +
+                ", longeur=" + longeur +
+                '}';
     }
 }

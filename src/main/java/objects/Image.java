@@ -26,5 +26,10 @@ public class Image {
         return aireTotale;
     }
 
-
+    @Override
+    public String toString() {
+        return "Image{" +
+                "formes=" + formes +
+                '}';
+    }
 }
