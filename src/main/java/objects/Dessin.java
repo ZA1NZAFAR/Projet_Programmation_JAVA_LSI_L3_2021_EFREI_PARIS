@@ -1,18 +1,17 @@
 package objects;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Dessin {
-    List<Image> images;
+    Set<Image> images;
 
-    public Dessin(List<Image> formes) {
+    public Dessin(Set<Image> formes) {
         this.images = formes;
     }
 
     public Dessin() {
-        this.images = new ArrayList<>();
+        this.images = new HashSet<>();
     }
-
 
 }

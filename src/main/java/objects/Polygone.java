@@ -1,19 +1,19 @@
 package objects;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
     private Point centre;
-    private List<Ligne> lines;
+    private Set<Ligne> lines;
 
 
     public Polygone() {
-        lines = new ArrayList<>();
+        lines = new HashSet<>();
     }
 
-    public Polygone(Point centre, List<Ligne> lines) {
+    public Polygone(Point centre, Set<Ligne> lines) {
         this.centre = centre;
         this.lines = lines;
     }

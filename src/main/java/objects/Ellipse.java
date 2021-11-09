@@ -14,12 +14,12 @@ public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
 
     @Override
     public Double calculerPerimetre() {
-        return (2 * Math.PI) * Math.sqrt((Math.pow(width / 2, 2) * Math.pow(height / 2, 2)) / 2);
+        return Double.parseDouble(String.format("%.3f",(2 * Math.PI) * Math.sqrt((Math.pow(width / 2, 2) * Math.pow(height / 2, 2)) / 2)));
     }
 
     @Override
     public Double calculerAire() {
-        return (width / 2) * (height / 2) * Math.PI;
+        return Double.parseDouble(String.format("%.3f",(width / 2) * (height / 2) * Math.PI));
     }
 
     @Override
