@@ -3,6 +3,7 @@ package objects;
 import java.awt.*;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
     private Point centre;
@@ -20,7 +21,7 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
 
     @Override
     public Double calculerPerimetre() {
-        return null;
+        return lines.stream().map(Ligne::calculerPerimetre).collect(Collectors.toList()).stream().mapToDouble(Double::doubleValue).sum();
     }
 
     @Override

@@ -4,6 +4,8 @@ import objects.Image;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class MAIN {
     public static void main(String[] args) {
@@ -16,8 +18,8 @@ public class MAIN {
         Ligne ligne2 = new Ligne(new Point(1,0),new Point(5,5),5.5);
         Ligne ligne3 = new Ligne(new Point(2,0),new Point(5,5),5.5);
 
-        //FormeGeometrique polygon = new Polygone(Arrays.asList(ligne,ligne2,ligne3));
-
+        FormeGeometrique polygon = new Polygone(new Point(2,0),new HashSet<>(Arrays.asList(ligne,ligne2,ligne3)));
+        System.out.println(polygon.calculerPerimetre());
         Image image = new Image();
         image.ajoutFormes(cercle);
         image.ajoutFormes(ellipse);
