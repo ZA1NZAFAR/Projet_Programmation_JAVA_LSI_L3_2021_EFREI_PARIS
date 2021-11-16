@@ -6,9 +6,9 @@ public abstract class FormeGeometrique {
     private Constants.Orientation orientation = Constants.Orientation.DEFAUT;
     private Color color;
 
-    public abstract Double calculerPerimetre();
+    public abstract double calculerPerimetre();
 
-    public abstract Double calculerAire();
+    public abstract double calculerAire();
 
     public void setOrientation(Constants.Orientation orientation) {
         this.orientation = orientation;

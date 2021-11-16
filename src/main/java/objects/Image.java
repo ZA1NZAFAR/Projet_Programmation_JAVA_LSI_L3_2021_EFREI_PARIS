@@ -18,8 +18,8 @@ public class Image {
         formes.add(formeGeometrique);
     }
 
-    public Double calculerAireTotale() {
-        Double aireTotale = 0.0;
+    public double calculerAireTotale() {
+        double aireTotale = 0.0;
         for (FormeGeometrique f : formes) {
             aireTotale += f.calculerAire();
         }

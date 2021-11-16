@@ -4,21 +4,21 @@ import java.awt.*;
 
 public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
     private Point depart, arrive;
-    private Double longeur;
+    private double longeur;
 
-    public Ligne(Point depart, Point arrive, Double longeur) {
+    public Ligne(Point depart, Point arrive, double longeur) {
         this.depart = depart;
         this.arrive = arrive;
         this.longeur = longeur;
     }
 
     @Override
-    public Double calculerPerimetre() {
+    public double calculerPerimetre() {
         return longeur;
     }
 
     @Override
-    public Double calculerAire() {
+    public double calculerAire() {
         return 0.0;
     }
 

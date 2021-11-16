@@ -13,13 +13,13 @@ public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
     }
 
     @Override
-    public Double calculerPerimetre() {
-        return Double.parseDouble(String.format("%.3f",2 * Math.PI * rayon)) ;
+    public double calculerPerimetre() {
+        return Math.round((2 * Math.PI * rayon) * 100.0 ) / 100.0;
     }
 
     @Override
-    public Double calculerAire() {
-        return Double.parseDouble(String.format("%.3f",rayon * rayon * Math.PI));
+    public double calculerAire() {
+        return Math.round((rayon * rayon * Math.PI) * 100.0) / 100.0;
     }
 
     @Override

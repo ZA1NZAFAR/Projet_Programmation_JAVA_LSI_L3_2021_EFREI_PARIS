@@ -20,13 +20,17 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
     }
 
     @Override
-    public Double calculerPerimetre() {
-        return lines.stream().map(Ligne::calculerPerimetre).collect(Collectors.toList()).stream().mapToDouble(Double::doubleValue).sum();
+    public double calculerPerimetre() {
+        double perimetre = 0;
+        for (Ligne lines: lines) {
+            perimetre += lines.calculerPerimetre();
+        }
+        return perimetre;
     }
 
     @Override
-    public Double calculerAire() {
-        return null;
+    public double calculerAire() {
+        return 0.;
     }
 
     @Override
