@@ -23,6 +23,17 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
     }
 
     @Override
+    public void translation(Point deplacement) {
+        this.depart.move(deplacement.x + depart.x, deplacement.y + depart.y);
+        this.arrive.move(deplacement.x + arrive.x, deplacement.y + arrive.y);
+    }
+
+    @Override
+    public void homothetie(double value) {
+
+    }
+
+    @Override
     public int compareTo(Ligne o) {
         if (this.calculerPerimetre() == o.calculerPerimetre())
             return 0;

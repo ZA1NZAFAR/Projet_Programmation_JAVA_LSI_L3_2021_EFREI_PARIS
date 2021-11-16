@@ -3,7 +3,6 @@ package objects;
 import java.awt.*;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
     private Point centre;
@@ -22,8 +21,8 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
     @Override
     public double calculerPerimetre() {
         double perimetre = 0;
-        for (Ligne lines: lines) {
-            perimetre += lines.calculerPerimetre();
+        for (Ligne line : lines) {
+            perimetre += line.calculerPerimetre();
         }
         return perimetre;
     }
@@ -31,6 +30,18 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
     @Override
     public double calculerAire() {
         return 0.;
+    }
+
+    @Override
+    public void translation(Point deplacement) {
+        for (Ligne line: lines) {
+            line.translation(deplacement);
+        }
+    }
+
+    @Override
+    public void homothetie(double value) {
+
     }
 
     @Override

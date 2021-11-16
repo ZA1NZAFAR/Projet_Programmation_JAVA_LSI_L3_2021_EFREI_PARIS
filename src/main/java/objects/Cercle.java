@@ -14,12 +14,22 @@ public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
 
     @Override
     public double calculerPerimetre() {
-        return Math.round((2 * Math.PI * rayon) * 100.0 ) / 100.0;
+        return Math.round((2 * Math.PI * rayon) * 100.0) / 100.0;
     }
 
     @Override
     public double calculerAire() {
         return Math.round((rayon * rayon * Math.PI) * 100.0) / 100.0;
+    }
+
+    @Override
+    public void translation(Point deplacement) {
+        this.centre.move(deplacement.x + centre.x, deplacement.y + centre.y);
+    }
+
+    @Override
+    public void homothetie(double value) {
+
     }
 
     @Override

@@ -10,6 +10,10 @@ public abstract class FormeGeometrique {
 
     public abstract double calculerAire();
 
+    public abstract void translation(Point deplacement);
+
+    public abstract void homothetie(double value);
+
     public void setOrientation(Constants.Orientation orientation) {
         this.orientation = orientation;
     }
@@ -17,4 +21,6 @@ public abstract class FormeGeometrique {
     public void setColor(Color color) {
         this.color = color;
     }
+
+
 }

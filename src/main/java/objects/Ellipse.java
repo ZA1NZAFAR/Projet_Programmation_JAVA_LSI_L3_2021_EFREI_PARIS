@@ -23,6 +23,16 @@ public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
     }
 
     @Override
+    public void translation(Point deplacement) {
+        this.centre.move(deplacement.x + centre.x, deplacement.y + centre.y);
+    }
+
+    @Override
+    public void homothetie(double value) {
+
+    }
+
+    @Override
     public int compareTo(Ellipse o) {
         if (this.calculerPerimetre() == o.calculerPerimetre())
             return 0;
