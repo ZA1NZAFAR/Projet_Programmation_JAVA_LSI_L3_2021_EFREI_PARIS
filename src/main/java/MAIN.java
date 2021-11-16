@@ -1,14 +1,13 @@
 import objects.Image;
 import objects.*;
 
-import javax.xml.transform.sax.SAXSource;
 import java.awt.*;
 import java.util.Arrays;
 import java.util.HashSet;
 
 public class MAIN {
     public static void main(String[] args) {
-        FormeGeometrique cercle = new Cercle(new Point(4, 6), 5.5);
+        FormeGeometrique cercle = new Cercle(new Point(0, 0), 5.5);
         System.out.println("cercle aire = " + cercle.calculerAire() + " permi = " + cercle.calculerPerimetre());
         FormeGeometrique ellipse = new Ellipse(new Point(0, 0), 5, 7);
         System.out.println("Ellipse aire = " + ellipse.calculerAire() + " permi = " + ellipse.calculerPerimetre());
@@ -29,7 +28,6 @@ public class MAIN {
         cercle.translation(deplacement);
         System.out.println(ligne.toString());
         System.out.println(cercle.toString());
-
 
     }
 }
