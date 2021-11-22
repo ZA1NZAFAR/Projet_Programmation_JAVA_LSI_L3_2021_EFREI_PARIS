@@ -1,6 +1,5 @@
 package objects;
 
-import java.awt.*;
 
 public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
     private Point depart, arrive;
@@ -9,7 +8,7 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
     public Ligne(Point depart, Point arrive) {
         this.depart = depart;
         this.arrive = arrive;
-        this.longeur = Math.sqrt(Math.pow(2,(arrive.x - depart.x)) + Math.pow(2, (arrive.y - depart.y)));
+        this.longeur = Math.sqrt(Math.pow(2, (arrive.getX() - depart.getX())) + Math.pow(2, (arrive.getY() - depart.getY())));
     }
 
     @Override
@@ -24,26 +23,35 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
 
     @Override
     public void translation(Point deplacement) {
-        this.depart.move(deplacement.x + depart.x, deplacement.y + depart.y);
-        this.arrive.move(deplacement.x + arrive.x, deplacement.y + arrive.y);
+        this.depart.set(new Point(deplacement.getX() + depart.getX(), deplacement.getY() + depart.getY()));
+        this.arrive.set(new Point(deplacement.getX() + arrive.getX(), deplacement.getY() + arrive.getY()));
     }
 
     @Override
     public void homothetie(double valeur, Point centre) {
-        longeur = longeur * valeur;
-        this.depart.x = (int) (this.depart.x * valeur * (this.depart.equals(centre) ? 1 : -1));
-        this.depart.y = (int) (this.depart.y * valeur * (this.depart.equals(centre)  ? 1 : -1));
-        this.arrive.x = (int) (this.arrive.x * valeur * (this.arrive.equals(centre) ? 1 : -1));
-        this.arrive.y = (int) (this.arrive.y * valeur * (this.arrive.equals(centre) ? 1 : -1));
+        longeur = longeur * valeur; // essayer avec des vecteurs
+        Ligne vecteur1 = new Ligne(depart, centre);
+        Ligne vecteur2 = new Ligne(arrive, centre);
+        if (valeur > 0) {
+            this.depart.setX((valeur * vecteur1.getDepart().getX()));
+            this.depart.setY((valeur * vecteur1.getDepart().getY()));
+            this.arrive.setX((valeur * vecteur1.getArrive().getX()));
+            this.arrive.setY((valeur * vecteur1.getArrive().getY()));
+        } else if (valeur < 0) {
+            this.depart.setX((-valeur * vecteur1.getDepart().getX()));
+            this.depart.setY((-valeur * vecteur1.getDepart().getY()));
+            this.arrive.setX((-valeur * vecteur1.getArrive().getX()));
+            this.arrive.setY((-valeur * vecteur1.getArrive().getY()));
+        }
     }
 
     @Override
     public void symetrieAxiale(Ligne axe) {
         // faire un if si possible pour comparer à droite ou à gauche
-        this.depart.x = axe.depart.x - this.depart.x;
-        this.depart.y = axe.depart.y - this.depart.y;
-        this.arrive.x = axe.arrive.x - this.arrive.x;
-        this.arrive.y = axe.arrive.y - this.arrive.y;
+        this.depart.setX(axe.depart.getX() + this.depart.getX());
+        this.depart.setY(axe.depart.getY() + this.depart.getY());
+        this.arrive.setX(axe.arrive.getX() + this.arrive.getX());
+        this.arrive.setY(axe.arrive.getY() + this.arrive.getY());
     }
 
     @Override
@@ -53,6 +61,21 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
         else if (this.calculerPerimetre() < o.calculerPerimetre())
             return -1;
         else return 1;
+    }
+
+    public Point milieu() {
+        Point milieu = new Point();
+        milieu.setX((this.depart.getX() + this.arrive.getX()) / 2);
+        milieu.setY((this.depart.getY() + this.depart.getY()) / 2);
+        return milieu;
+    }
+
+    public Point getDepart() {
+        return depart;
+    }
+
+    public Point getArrive() {
+        return arrive;
     }
 
     @Override

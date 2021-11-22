@@ -1,18 +1,17 @@
 import objects.Image;
 import objects.*;
 
-import java.awt.*;
 import java.util.Arrays;
 import java.util.HashSet;
 
 public class MAIN {
     public static void main(String[] args) {
         FormeGeometrique cercle = new Cercle(new Point(0, 0), 5.5);
-        System.out.println("cercle aire = " + cercle.calculerAire() + " permi = " + cercle.calculerPerimetre());
+        System.out.println("cercle aire = " + cercle.calculerAire() + " perim = " + cercle.calculerPerimetre());
         FormeGeometrique ellipse = new Ellipse(new Point(0, 0), 5, 7);
-        System.out.println("Ellipse aire = " + ellipse.calculerAire() + " permi = " + ellipse.calculerPerimetre());
-        Ligne ligne = new Ligne(new Point(0, 0), new Point(5, 5));
-        System.out.println("Ligne aire = " + ligne.calculerAire() + " permi = " + ligne.calculerPerimetre());
+        System.out.println("Ellipse aire = " + ellipse.calculerAire() + " perim = " + ellipse.calculerPerimetre());
+        Ligne ligne = new Ligne(new Point(0, 0), new Point(0, 2));
+        System.out.println("Ligne aire = " + ligne.calculerAire() + " perim = " + ligne.calculerPerimetre());
         Ligne ligne2 = new Ligne(new Point(1, 0), new Point(5, 5));
         Ligne ligne3 = new Ligne(new Point(2, 0), new Point(5, 5));
 
@@ -24,11 +23,11 @@ public class MAIN {
         //image.ajoutFormes(polygon);
         System.out.println(image);
         Point deplacement = new Point(1,2);
-        Point homothetie = new Point(4,5);
-        ligne.translation(deplacement);
+        Point homothetie = new Point(5,3);
+        //ligne.translation(deplacement);
         System.out.println(ligne.toString());
         cercle.translation(deplacement);
-        ligne.homothetie(3,homothetie);
+        ligne.homothetie(0.5,homothetie);
         System.out.println(ligne.toString());
         System.out.println(cercle.toString());
 

@@ -1,9 +1,7 @@
 package objects;
 
-import java.awt.*;
-
 public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
-    private Point centre;
+    private Point centre = new Point();
     private Double rayon;
 
 
@@ -24,19 +22,20 @@ public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
 
     @Override
     public void translation(Point deplacement) {
-        this.centre.move(deplacement.x + centre.x, deplacement.y + centre.y);
+        this.centre.set(new Point(deplacement.getX() + centre.getX(),deplacement.getY() + centre.getY()));
     }
 
     @Override
     public void homothetie(double valeur, Point centre) {
         this.rayon *= valeur;
-        this.centre.x = (int) (this.centre.x * valeur * (this.centre.equals(centre) ? 1 : -1));
-        this.centre.y = (int) (this.centre.y * valeur * (this.centre.equals(centre) ? 1 : -1));
+        this.centre.setX((this.centre.getX() * valeur * (this.centre.equals(centre) ? 1 : -1)));
+        this.centre.setY((this.centre.getY() * valeur * (this.centre.equals(centre) ? 1 : -1)));
     }
 
     @Override
     public void symetrieAxiale(Ligne axe) {
-
+        this.centre.setX(axe.milieu().getX() + this.centre.getX());
+        this.centre.setY(axe.milieu().getY() + this.centre.getY());
     }
 
     @Override

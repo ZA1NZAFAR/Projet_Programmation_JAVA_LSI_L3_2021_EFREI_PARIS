@@ -1,9 +1,7 @@
 package objects;
 
-import java.awt.*;
-
 public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
-    private Point centre;
+    private Point centre = new Point();
     private double width, height;
 
     public Ellipse(Point centre, double width, double height) {
@@ -24,15 +22,15 @@ public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
 
     @Override
     public void translation(Point deplacement) {
-        this.centre.move(deplacement.x + centre.x, deplacement.y + centre.y);
+        this.centre.set(new Point(deplacement.getX() + centre.getX(), deplacement.getY() + centre.getY()));
     }
 
     @Override
     public void homothetie(double valeur, Point centre) {
         this.width *= valeur;
         this.height *= valeur;
-        this.centre.x = (int) (this.centre.x * valeur * (this.centre.equals(centre) ? 1 : -1));
-        this.centre.y = (int) (this.centre.y * valeur * (this.centre.equals(centre) ? 1 : -1));
+        this.centre.setX((this.centre.getX() * valeur * (this.centre.equals(centre) ? 1 : -1)));
+        this.centre.setY((this.centre.getY() * valeur * (this.centre.equals(centre) ? 1 : -1)));
     }
 
     @Override
