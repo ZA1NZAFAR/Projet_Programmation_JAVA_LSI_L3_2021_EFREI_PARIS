@@ -12,7 +12,7 @@ public abstract class FormeGeometrique {
 
     public abstract void translation(Point deplacement);
 
-    public abstract void homothetie(double value);
+    public abstract void homothetie(double value, Point centre);
 
     public void setOrientation(Constants.Orientation orientation) {
         this.orientation = orientation;

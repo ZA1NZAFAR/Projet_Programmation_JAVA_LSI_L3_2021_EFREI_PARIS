@@ -29,8 +29,12 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
     }
 
     @Override
-    public void homothetie(double value) {
-
+    public void homothetie(double valeur, Point centre) {
+        longeur = longeur * valeur;
+        this.depart.x = (int) (this.depart.x * valeur * (this.depart.equals(centre) ? 1 : -1));
+        this.depart.y = (int) (this.depart.y * valeur * (this.depart.equals(centre)  ? 1 : -1));
+        this.arrive.x = (int) (this.arrive.x * valeur * (this.arrive.equals(centre) ? 1 : -1));
+        this.arrive.y = (int) (this.arrive.y * valeur * (this.arrive.equals(centre) ? 1 : -1));
     }
 
     @Override

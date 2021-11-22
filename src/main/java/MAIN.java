@@ -24,8 +24,11 @@ public class MAIN {
         //image.ajoutFormes(polygon);
         System.out.println(image);
         Point deplacement = new Point(1,2);
+        Point homothetie = new Point(4,5);
         ligne.translation(deplacement);
+        System.out.println(ligne.toString());
         cercle.translation(deplacement);
+        ligne.homothetie(3,homothetie);
         System.out.println(ligne.toString());
         System.out.println(cercle.toString());
 

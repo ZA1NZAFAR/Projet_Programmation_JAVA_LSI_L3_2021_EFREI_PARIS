@@ -40,8 +40,10 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
     }
 
     @Override
-    public void homothetie(double value) {
-
+    public void homothetie(double valeur, Point centre) {
+        for (Ligne line: lines) {
+            line.homothetie(valeur,centre);
+        }
     }
 
     @Override

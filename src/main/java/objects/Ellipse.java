@@ -28,8 +28,11 @@ public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
     }
 
     @Override
-    public void homothetie(double value) {
-
+    public void homothetie(double valeur, Point centre) {
+        this.width *= valeur;
+        this.height *= valeur;
+        this.centre.x = (int) (this.centre.x * valeur * (this.centre.equals(centre) ? 1 : -1));
+        this.centre.y = (int) (this.centre.y * valeur * (this.centre.equals(centre) ? 1 : -1));
     }
 
     @Override
