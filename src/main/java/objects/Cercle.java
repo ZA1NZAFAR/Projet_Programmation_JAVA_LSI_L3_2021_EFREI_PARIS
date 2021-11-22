@@ -35,6 +35,11 @@ public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
     }
 
     @Override
+    public void symetrieAxiale(Ligne axe) {
+
+    }
+
+    @Override
     public int compareTo(Cercle o) {
         if (this.calculerPerimetre() == o.calculerPerimetre())
             return 0;

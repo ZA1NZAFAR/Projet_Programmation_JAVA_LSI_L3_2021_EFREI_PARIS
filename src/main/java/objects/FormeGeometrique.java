@@ -14,6 +14,8 @@ public abstract class FormeGeometrique {
 
     public abstract void homothetie(double value, Point centre);
 
+    public abstract void symetrieAxiale(Ligne axe);
+
     public void setOrientation(Constants.Orientation orientation) {
         this.orientation = orientation;
     }
