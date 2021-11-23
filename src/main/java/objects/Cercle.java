@@ -1,7 +1,7 @@
 package objects;
 import static objects.Constants.Axe;
 
-public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
+public class Cercle extends FormeGeometrique implements Comparable<Cercle>,Geometricable {
     private Point centre;
     private Double rayon;
 

@@ -2,7 +2,7 @@ package objects;
 
 import static objects.Constants.Axe;
 
-public abstract class FormeGeometrique {
+public abstract class FormeGeometrique implements Geometricable{
     protected int angle;
 
     public void rotate(int angle) {
@@ -11,16 +11,4 @@ public abstract class FormeGeometrique {
         while (this.angle < 0) this.angle += 360;
         if (this.angle % 360 == 0) this.angle = 0;
     }
-
-    public abstract double calculerPerimetre();
-
-    public abstract double calculerAire();
-
-    public abstract void translation(Point deplacement);
-
-    public abstract void homothetie(double value);
-
-    public abstract void symetrieAxiale(Axe axe);
-
-    public abstract void symetrieCentrale();
 }
