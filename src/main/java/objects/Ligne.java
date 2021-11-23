@@ -1,113 +1,82 @@
 package objects;
 
-import java.awt.*;
 
 public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
     private Point depart, arrive;
     private double longeur;
 
-<<<<<<< Updated upstream
-    public Ligne(Point depart, Point arrive) {
-        this.depart = depart;
-        this.arrive = arrive;
-        this.longeur = Math.sqrt(Math.pow(2, (arrive.x - depart.x)) + Math.pow(2, (arrive.y - depart.y)));
-    }
-
-=======
     /***
-     * Initialise une ligne avec des points donnés
-     * @param depart point de départ de la ligne
-     * @param arrive point d'arrivé de la ligne
+     * Initialise une ligne en fonction des paramètres données et qui lui donne une longueur selon ses points
+     * @param depart le point de départ de notre ligne
+     * @param arrive le point d'arrivé de notre ligne
      */
     public Ligne(Point depart, Point arrive) {
         this.depart = depart;
         this.arrive = arrive;
-        this.longeur = Math.sqrt(Math.pow(2, (arrive.getX() - depart.getX())) + Math.pow(2, (arrive.getY() - depart.getY())));
+        this.longeur = Math.sqrt(Math.pow(2,(arrive.getX()-depart.getX())) + Math.pow(2,(arrive.getY()-depart.getY())));
     }
 
     /***
-     * Calcule le périmètre d'une ligne, le périmètre d'une ligne est sa longuer
-     * @return la longeur de la ligne
+     * Le périmètre d'une ligne étant sa longueur, retourne sa longeur
+     * @return longeur de la ligne
      */
->>>>>>> Stashed changes
     @Override
     public double calculerPerimetre() {
         return longeur;
     }
 
-<<<<<<< Updated upstream
-=======
     /***
-     * L'aire d'une ligne est nulle
+     * Une ligne ne possède pas d'aire
      * @return 0.0
      */
->>>>>>> Stashed changes
     @Override
     public double calculerAire() {
         return 0.0;
     }
 
-<<<<<<< Updated upstream
-    @Override
-    public void translation(Point deplacement) {
-        this.depart.move(deplacement.x + depart.x, deplacement.y + depart.y);
-        this.arrive.move(deplacement.x + arrive.x, deplacement.y + arrive.y);
-    }
-
-    @Override
-    public void homothetie(double valeur, Point centre) {
-        longeur = longeur * valeur;
-        this.depart.x = (int) (this.depart.x * valeur * (this.depart.equals(centre) ? 1 : -1));
-        this.depart.y = (int) (this.depart.y * valeur * (this.depart.equals(centre) ? 1 : -1));
-        this.arrive.x = (int) (this.arrive.x * valeur * (this.arrive.equals(centre) ? 1 : -1));
-        this.arrive.y = (int) (this.arrive.y * valeur * (this.arrive.equals(centre) ? 1 : -1));
-=======
     /***
-     * Fait une translation d'une ligne vers un point donné
-     * @param deplacement point vers lequel on veut que la ligne soit sur
+     * Fait la translation d'une ligne vers un point donné
+     * @param deplacement un point vers lequel la ligne va se déplacer
      */
     @Override
     public void translation(Point deplacement) {
-        this.depart.set(new Point(deplacement.getX()+depart.getX(),deplacement.getY()+depart.getY()));
-        this.arrive.set(new Point(deplacement.getX()+arrive.getX(),deplacement.getY()+arrive.getY()));
+        this.depart.set(new Point(deplacement.getX() + depart.getX(), deplacement.getY() + depart.getY()));
+        this.arrive.set(new Point(deplacement.getX() + arrive.getX(), deplacement.getY() + arrive.getY()));
     }
 
     /***
-     * Fait l'homothétie d'une ligne un rapport à un point
-     * @param valeur le rapport de homothétie
-     * @param centre le centre où la homothétie se projette
+     * Fait l'homothétie de la ligne en fonction d'un point centre
+     * @param valeur le rapport de l'homothétie
      */
     @Override
-    public void homothetie(double valeur, Point centre) {
-        longeur = longeur * valeur;
-        this.depart.setX(this.depart.getX() * valeur * (this.depart.equals(centre) ? 1 : -1));
-        this.depart.setY(this.depart.getY() * valeur * (this.depart.equals(centre) ? 1 : -1));
-        this.arrive.setX(this.arrive.getX() * valeur * (this.arrive.equals(centre) ? 1 : -1));
-        this.arrive.setY(this.arrive.getY() * valeur * (this.arrive.equals(centre) ? 1 : -1));
->>>>>>> Stashed changes
+    public void homothetie(double valeur) {
+        longeur = (longeur * valeur);
+        this.depart.homothetie(valeur);
+        this.arrive.homothetie(valeur);
     }
 
+    /***
+     * Fait la symétrie axiale selon un axe donnée
+     * @param axe l'axe où la symétrie axiale sera faite
+     */
     @Override
     public void symetrieAxiale(Ligne axe) {
-<<<<<<< Updated upstream
-        // faire un if si possible pour comparer à droite ou à gauche
-        if (axe.depart.getX() == axe.arrive.getX()) { // Pour le cas d'un axe perpendiculaire à l'axe des abscisses
-            this.depart.x = (2 * axe.depart.x - this.depart.x);
-            this.arrive.x = (2 * axe.arrive.x - this.arrive.x);
-        } else {
-            double a = (axe.arrive.y - axe.depart.y)/(axe.arrive.x - axe.depart.x);
-            double b = axe.depart.y - axe.depart.x;
-            this.depart.x = (int) ((1-Math.pow(a,2) * this.depart.x + 2 * a * this.depart.y - 2*a*b)/(1+Math.pow(a, 2)));
-            this.depart.y = (int) ((2*a*this.depart.x - (1-Math.pow(a, 2))*this.depart.y+2*b)/(1+Math.pow(a, 2)));
-            this.arrive.x = (int) ((1-Math.pow(a,2) * this.arrive.x + 2 * a * this.arrive.y - 2*a*b)/(1+Math.pow(a, 2)));
-            this.arrive.y = (int) ((2*a*this.arrive.x - (1-Math.pow(a, 2))*this.arrive.y+2*b)/(1+Math.pow(a, 2)));
-        }
-=======
-        depart.symetrieAxiale(axe);
-        arrive.symetrieAxiale(axe);
->>>>>>> Stashed changes
+        this.depart.symetrieAxiale(axe);
+        this.arrive.symetrieAxiale(axe);
     }
 
+    @Override
+    public void symetrieCentrale(Ligne axe) {
+
+    }
+
+    /***
+     * Permet de comparer les périmètres des lignes (longeurs)
+     * @param o ligne o à comparer avec la ligne actuelle
+     * @return 0 si la longeur est égale
+     * @return -1 si la longeur de la ligne est moins longue que la ligne o mis en paramètre
+     * @return 1 si la longeur de notre ligne est supérieur à la ligne o mis en paramètre
+     */
     @Override
     public int compareTo(Ligne o) {
         if (this.calculerPerimetre() == o.calculerPerimetre())
@@ -117,13 +86,6 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
         else return 1;
     }
 
-<<<<<<< Updated upstream
-    @Override
-    public String toString() {
-        return "Ligne{" +
-                "depart=" + depart +
-                ", arrive=" + arrive +
-=======
     public Point getDepart() {
         return depart;
     }
@@ -134,11 +96,9 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
 
     @Override
     public String toString() {
-        return "Ligne{" +
-                "depart=" + depart.getX() + "," + depart.getY() +
-                ", arrive=" + arrive.getX() + "," + depart.getY() +
->>>>>>> Stashed changes
-                ", longeur=" + longeur +
-                '}';
+        return "Ligne : \n" +
+                " Point de depart = " + depart.getX() + "," + depart.getY()+
+                "\n Point d'arrive=" + arrive.getX() + "," + arrive.getY() +
+                "\n Longeur =" + longeur + "\n";
     }
 }

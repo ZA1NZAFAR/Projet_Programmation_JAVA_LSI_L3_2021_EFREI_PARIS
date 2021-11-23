@@ -1,9 +1,7 @@
 package objects;
 
-import java.awt.*;
-
 public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
-    private Point centre;
+    private Point centre = new Point();
     private double width, height;
 
     public Ellipse(Point centre, double width, double height) {
@@ -24,19 +22,29 @@ public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
 
     @Override
     public void translation(Point deplacement) {
-        this.centre.move(deplacement.x + centre.x, deplacement.y + centre.y);
+        this.centre.set(new Point(deplacement.getX() + centre.getX(), deplacement.getY() + centre.getY()));
     }
 
     @Override
-    public void homothetie(double valeur, Point centre) {
+    public void homothetie(double valeur) {
         this.width *= valeur;
         this.height *= valeur;
-        this.centre.x = (int) (this.centre.x * valeur * (this.centre.equals(centre) ? 1 : -1));
-        this.centre.y = (int) (this.centre.y * valeur * (this.centre.equals(centre) ? 1 : -1));
+        this.centre.homothetie(valeur);
+        if (valeur < 0){
+            this.setOrientation(Constants.Orientation.HORIZONTAL_D);
+        }
     }
 
     @Override
     public void symetrieAxiale(Ligne axe) {
+        this.centre.symetrieAxiale(axe);
+        if (axe.getDepart().getY() == 0 && axe.getArrive().getY() == 0) { //si l'axe donné est l'abscisse
+            if (this.centre.getX() > 0)
+                this.setOrientation(Constants.Orientation.HORIZONTAL_G);
+            else
+                this.setOrientation(Constants.Orientation.HORIZONTAL_D);
+        } else if (axe.getDepart().getX() == 0 && axe.getArrive().getX() == 0)//si l'axe donné est l'ordonnée
+                this.setOrientation(Constants.Orientation.INVERSE);
 
     }
 
@@ -52,10 +60,9 @@ public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
 
     @Override
     public String toString() {
-        return "Ellipse{" +
-                "centre=" + centre +
-                ", width=" + width +
-                ", height=" + height +
-                '}';
+        return "Ellipse :" +
+                "\n Centre=" + centre.getX() + "," +centre.getY() +
+                "\n Width=" + width +
+                "\n Height=" + height + "\n";
     }
 }

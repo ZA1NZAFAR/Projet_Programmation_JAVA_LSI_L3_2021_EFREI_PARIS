@@ -1,14 +1,15 @@
 package objects;
 
-public class Point extends FormeGeometrique {
+public class Point extends FormeGeometrique implements Comparable<Point> {
     private double x;
     private double y;
 
-    public Point (){
+    public Point() {
         this.x = 0.;
         this.y = 0.;
     }
-    public Point(double x, double y){
+
+    public Point(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -29,7 +30,7 @@ public class Point extends FormeGeometrique {
         this.y = y;
     }
 
-    public void set(Point p){
+    public void set(Point p) {
         this.x = p.x;
         this.y = p.y;
     }
@@ -46,25 +47,48 @@ public class Point extends FormeGeometrique {
 
     @Override
     public void translation(Point deplacement) {
-
+        this.setX(deplacement.getX());
+        this.setY(deplacement.getY());
     }
 
     @Override
-    public void homothetie(double value, Point centre) {
-
+    public void homothetie(double value) {
+        this.setX(this.getX() * value);
+        this.setY(this.getY() * value);
     }
 
     @Override
     public void symetrieAxiale(Ligne axe) {
-        // faire un if si possible pour comparer à droite ou à gauche
-        if (axe.getDepart().getX() == axe.getArrive().getX()) { // Pour le cas d'un axe perpendiculaire à l'axe des abscisses
-            this.setX((2 * axe.getDepart().x - this.x));
-
-        } else {
-            double a = (axe.getArrive().y - axe.getDepart().y)/(axe.getArrive().x - axe.getDepart().x);
-            double b = axe.getDepart().y - a*axe.getDepart().x;
-            this.x = (1-Math.pow(a,2) * this.x + 2 * a * this.y - 2*a*b)/(1+Math.pow(a, 2));
-            this.y = (2*a*this.x - (1-Math.pow(a, 2))*this.y+2*b)/(1+Math.pow(a, 2));
+        if (axe.getDepart().getY() == 0 && axe.getArrive().getY() == 0) { //si l'axe donné est l'abscisse
+            if (this.getX() > 0)
+                this.setX(-this.getX());
+            else
+                this.setX(Math.abs(this.getX()));
+        } else if (axe.getDepart().getX() == 0 && axe.getArrive().getX() == 0) { //si l'axe donné est l'ordonnée
+            if (this.getY() > 0)
+                this.setY(-this.getY());
+            else
+                this.setY(Math.abs(this.getY()));
         }
+    }
+
+    @Override
+    public void symetrieCentrale(Ligne axe) {
+
+    }
+
+    @Override
+    public String toString() {
+        return "Point :" +
+                "x= " + x +
+                " , y= " + y;
+    }
+
+    @Override
+    public int compareTo(Point o) {
+        if (this.getX() + this.getY() < o.getX() + o.getY())
+            return 0;
+        else
+            return 1;
     }
 }
