@@ -3,7 +3,7 @@ import iface.Geometricable;
 
 import static tools.Constants.Axe;
 
-public class Cercle extends FormeGeometrique implements Comparable<Cercle>, Geometricable {
+public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
     private Point centre;
     private Double rayon;
 
