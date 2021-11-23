@@ -40,7 +40,7 @@ public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
      */
     @Override
     public void translation(Point deplacement) {
-        this.centre.set(new Point(deplacement.getX() + centre.getX(),deplacement.getY() + centre.getY()));
+        this.centre.translation(deplacement);
     }
 
     /***
@@ -63,8 +63,8 @@ public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
     }
 
     @Override
-    public void symetrieCentrale(Ligne axe) {
-
+    public void symetrieCentrale() {
+        this.centre.symetrieCentrale();
     }
 
     /***

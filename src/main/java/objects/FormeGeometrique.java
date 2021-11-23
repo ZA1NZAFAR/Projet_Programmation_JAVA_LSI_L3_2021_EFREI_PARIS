@@ -1,5 +1,6 @@
 package objects;
 
+import static objects.Constants.Axe;
 
 public abstract class FormeGeometrique {
     protected int angle;
@@ -19,7 +20,7 @@ public abstract class FormeGeometrique {
 
     public abstract void homothetie(double value);
 
-    public abstract void symetrieAxiale(Constants.Axe axe);
+    public abstract void symetrieAxiale(Axe axe);
 
-    public abstract void symetrieCentrale(Ligne axe);
+    public abstract void symetrieCentrale();
 }

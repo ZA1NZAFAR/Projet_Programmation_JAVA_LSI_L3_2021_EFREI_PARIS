@@ -60,8 +60,10 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
     }
 
     @Override
-    public void symetrieCentrale(Ligne axe) {
-
+    public void symetrieCentrale() {
+        for (Ligne line : lines) {
+            line.symetrieCentrale();
+        }
     }
 
     @Override

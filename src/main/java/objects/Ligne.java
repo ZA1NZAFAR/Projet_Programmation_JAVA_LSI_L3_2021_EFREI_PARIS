@@ -41,8 +41,8 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
      */
     @Override
     public void translation(Point deplacement) {
-        this.depart.set(new Point(deplacement.getX() + depart.getX(), deplacement.getY() + depart.getY()));
-        this.arrive.set(new Point(deplacement.getX() + arrive.getX(), deplacement.getY() + arrive.getY()));
+        this.depart.translation(deplacement);
+        this.arrive.translation(deplacement);
     }
 
     /***
@@ -67,8 +67,9 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
     }
 
     @Override
-    public void symetrieCentrale(Ligne axe) {
-
+    public void symetrieCentrale() {
+        this.depart.symetrieCentrale();
+        this.arrive.symetrieCentrale();
     }
 
     /***

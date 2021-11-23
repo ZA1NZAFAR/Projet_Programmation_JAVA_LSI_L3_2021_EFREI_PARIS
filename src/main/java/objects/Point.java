@@ -49,8 +49,8 @@ public class Point extends FormeGeometrique implements Comparable<Point> {
 
     @Override
     public void translation(Point deplacement) {
-        this.setX(deplacement.getX());
-        this.setY(deplacement.getY());
+        this.setX(this.getX() + deplacement.getX());
+        this.setY(this.getY() + deplacement.getY());
     }
 
     @Override
@@ -61,22 +61,22 @@ public class Point extends FormeGeometrique implements Comparable<Point> {
 
     @Override
     public void symetrieAxiale(Axe axe) {
-        if (axe.equals(Axe.ABCISSE)) { //si l'axe donné est l'abscisse
-            if (this.getX() > 0)
-                this.setX(-this.getX());
-            else
-                this.setX(Math.abs(this.getX()));
-        } else if (axe.equals(Axe.ORDONNEE)) { //si l'axe donné est l'ordonnée
-            if (this.getY() > 0)
-                this.setY(-this.getY());
-            else
-                this.setY(Math.abs(this.getY()));
+        switch (axe) {
+            case ABCISSE:  //si l'axe donné est l'abscisse
+                this.setY(this.getY() > 0 ? -this.getY() : Math.abs(this.getY()));
+                break;
+            case ORDONNEE:  //si l'axe donné est l'ordonnée
+                this.setX(this.getX() > 0 ? -this.getX() : Math.abs(this.getX()));
+                break;
+            default:
+                throw new IllegalArgumentException();
         }
     }
 
     @Override
-    public void symetrieCentrale(Ligne axe) {
-
+    public void symetrieCentrale() {
+        this.setX(this.getX() > 0 ? -this.getX() : Math.abs(this.getX()));
+        this.setY(this.getY() > 0 ? -this.getY() : Math.abs(this.getY()));
     }
 
     @Override

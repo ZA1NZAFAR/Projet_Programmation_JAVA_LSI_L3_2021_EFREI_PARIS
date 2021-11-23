@@ -3,7 +3,7 @@ package objects;
 import static objects.Constants.Axe;
 
 public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
-    private Point centre = new Point();
+    private Point centre;
     private double width, height;
 
     public Ellipse(Point centre, double width, double height) {
@@ -24,7 +24,7 @@ public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
 
     @Override
     public void translation(Point deplacement) {
-        this.centre.set(new Point(deplacement.getX() + centre.getX(), deplacement.getY() + centre.getY()));
+        this.centre.translation(deplacement);
     }
 
     @Override
@@ -40,11 +40,17 @@ public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
     @Override
     public void symetrieAxiale(Axe axe) {
         this.centre.symetrieAxiale(axe);
+        double tmp = this.height;
+        this.height = this.width;
+        this.width = tmp;
     }
 
     @Override
-    public void symetrieCentrale(Ligne axe) {
-        //TODO yet to be implemented
+    public void symetrieCentrale() {
+        this.centre.symetrieCentrale();
+        double tmp = this.height;
+        this.height = this.width;
+        this.width = tmp;
     }
 
     @Override
