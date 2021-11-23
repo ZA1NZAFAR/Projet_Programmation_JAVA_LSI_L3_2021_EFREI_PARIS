@@ -1,5 +1,4 @@
 package objects;
-import iface.Geometricable;
 
 import static tools.Constants.Axe;
 
@@ -61,7 +60,7 @@ public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
      */
     @Override
     public void symetrieAxiale(Axe axe) {
-       this.centre.symetrieAxiale(axe);
+        this.centre.symetrieAxiale(axe);
     }
 
     @Override
