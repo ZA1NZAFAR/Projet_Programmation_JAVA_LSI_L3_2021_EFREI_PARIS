@@ -47,24 +47,12 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
     /***
      * Fait l'homothétie de la ligne en fonction d'un point centre
      * @param valeur le rapport de l'homothétie
-     * @param centre le centre où l'homothétie sera faite
      */
     @Override
-    public void homothetie(double valeur, Point centre) {
+    public void homothetie(double valeur) {
         longeur = (longeur * valeur);
-        Ligne vecteur1 = new Ligne(this.depart, centre);
-        Ligne vecteur2 = new Ligne(this.arrive, centre);
-        if (valeur > 0) {
-            this.depart.setX((valeur * vecteur1.getDepart().getX()));
-            this.depart.setY((valeur * vecteur1.getDepart().getY()));
-            this.arrive.setX((valeur * vecteur2.getDepart().getX()));
-            this.arrive.setY((valeur * vecteur2.getDepart().getY()));
-        } else if (valeur < 0) {
-            this.depart.setX((-valeur * vecteur1.getDepart().getX()));
-            this.depart.setY((-valeur * vecteur1.getDepart().getY()));
-            this.arrive.setX((-valeur * vecteur2.getDepart().getX()));
-            this.arrive.setY((-valeur * vecteur2.getDepart().getY()));
-        }
+        this.depart.homothetie(valeur);
+        this.arrive.homothetie(valeur);
     }
 
     /***
@@ -72,11 +60,9 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
      * @param axe l'axe où la symétrie axiale sera faite
      */
     @Override
-    public void symetrieAxiale(Ligne axe) { // faire tourner après avoir trouvé la position
-        this.depart.setX(axe.depart.getX() + this.depart.getX());
-        this.depart.setY(axe.depart.getY() + this.depart.getY());
-        this.arrive.setX(axe.arrive.getX() + this.arrive.getX());
-        this.arrive.setY(axe.arrive.getY() + this.arrive.getY());
+    public void symetrieAxiale(Ligne axe) {
+        this.depart.symetrieAxiale(axe);
+        this.arrive.symetrieAxiale(axe);
     }
 
     /***
@@ -95,17 +81,6 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
         else return 1;
     }
 
-    /***
-     * Permet de calculer le milieu d'une ligne
-     * @return le milieu de la ligne
-     */
-    public Point milieu() {
-        Point milieu = new Point();
-        milieu.setX((this.depart.getX() + this.arrive.getX()) / 2);
-        milieu.setY((this.depart.getY() + this.depart.getY()) / 2);
-        return milieu;
-    }
-
     public Point getDepart() {
         return depart;
     }
@@ -116,10 +91,9 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
 
     @Override
     public String toString() {
-        return "Ligne{" +
-                "depart=" + depart.getX() + "," + depart.getY()+
-                ", arrive=" + arrive.getX() + "," + arrive.getY() +
-                ", longeur=" + longeur +
-                '}';
+        return "Ligne : \n" +
+                " Point de depart = " + depart.getX() + "," + depart.getY()+
+                "\n Point d'arrive=" + arrive.getX() + "," + arrive.getY() +
+                "\n Longeur =" + longeur + "\n";
     }
 }

@@ -44,13 +44,11 @@ public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
     /***
      * Fait l'homothétie d'un cercle vers un point donné
      * @param valeur le rapport de l'homothétie
-     * @param centre le centre où l'homothétie sera faite
      */
     @Override
-    public void homothetie(double valeur, Point centre) {
+    public void homothetie(double valeur) {
         this.rayon *= valeur;
-        this.centre.setX((this.centre.getX() * valeur * (this.centre.equals(centre) ? 1 : -1)));
-        this.centre.setY((this.centre.getY() * valeur * (this.centre.equals(centre) ? 1 : -1)));
+        this.centre.homothetie(valeur);
     }
 
     /***
@@ -59,8 +57,7 @@ public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
      */
     @Override
     public void symetrieAxiale(Ligne axe) {
-        this.centre.setX(axe.milieu().getX() + this.centre.getX());
-        this.centre.setY(axe.milieu().getY() + this.centre.getY());
+       this.centre.symetrieAxiale(axe);
     }
 
     /***
@@ -82,9 +79,8 @@ public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
 
     @Override
     public String toString() {
-        return "Cercle{" +
-                "centre=" + centre.getX() + "," + centre.getY() +
-                ", rayon=" + rayon +
-                '}';
+        return "Cercle :" +
+                "\n Centre=" + centre.getX() + "," + centre.getY() +
+                "\n Rayon=" + rayon + "\n";
     }
 }

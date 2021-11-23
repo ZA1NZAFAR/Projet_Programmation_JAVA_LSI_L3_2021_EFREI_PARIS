@@ -22,6 +22,7 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
         this.lines = lines;
     }
 
+
     @Override
     public double calculerPerimetre() {
         double perimetre = 0;
@@ -38,21 +39,23 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
 
     @Override
     public void translation(Point deplacement) {
-        for (Ligne line: lines) {
+        for (Ligne line : lines) {
             line.translation(deplacement);
         }
     }
 
     @Override
-    public void homothetie(double valeur, Point centre) {
-        for (Ligne line: lines) {
-            line.homothetie(valeur,centre);
+    public void homothetie(double valeur) {
+        for (Ligne line : lines) {
+            line.homothetie(valeur);
         }
     }
 
     @Override
     public void symetrieAxiale(Ligne axe) {
-
+        for (Ligne line : lines) {
+            line.symetrieAxiale(axe);
+        }
     }
 
     @Override
@@ -67,9 +70,9 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
 
     @Override
     public String toString() {
-        return "Polygone{" +
-                "centre=" + centre +
-                ", lines=" + lines +
-                '}';
+        return "Polygone :" +
+                "\n Centre=" + centre +
+                "\n Lines=" + lines +
+                "\n";
     }
 }

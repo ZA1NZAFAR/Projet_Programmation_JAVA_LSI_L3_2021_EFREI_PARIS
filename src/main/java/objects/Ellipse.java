@@ -26,15 +26,25 @@ public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
     }
 
     @Override
-    public void homothetie(double valeur, Point centre) {
+    public void homothetie(double valeur) {
         this.width *= valeur;
         this.height *= valeur;
-        this.centre.setX((this.centre.getX() * valeur * (this.centre.equals(centre) ? 1 : -1)));
-        this.centre.setY((this.centre.getY() * valeur * (this.centre.equals(centre) ? 1 : -1)));
+        this.centre.homothetie(valeur);
+        if (valeur < 0){
+            this.setOrientation(Constants.Orientation.HORIZONTAL_D);
+        }
     }
 
     @Override
     public void symetrieAxiale(Ligne axe) {
+        this.centre.symetrieAxiale(axe);
+        if (axe.getDepart().getY() == 0 && axe.getArrive().getY() == 0) { //si l'axe donné est l'abscisse
+            if (this.centre.getX() > 0)
+                this.setOrientation(Constants.Orientation.HORIZONTAL_G);
+            else
+                this.setOrientation(Constants.Orientation.HORIZONTAL_D);
+        } else if (axe.getDepart().getX() == 0 && axe.getArrive().getX() == 0)//si l'axe donné est l'ordonnée
+                this.setOrientation(Constants.Orientation.INVERSE);
 
     }
 
@@ -50,10 +60,9 @@ public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
 
     @Override
     public String toString() {
-        return "Ellipse{" +
-                "centre=" + centre.getX() + "," +centre.getY() +
-                ", width=" + width +
-                ", height=" + height +
-                '}';
+        return "Ellipse :" +
+                "\n Centre=" + centre.getX() + "," +centre.getY() +
+                "\n Width=" + width +
+                "\n Height=" + height + "\n";
     }
 }

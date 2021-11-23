@@ -14,7 +14,12 @@ public class MAIN {
         System.out.println("Ligne aire = " + ligne.calculerAire() + " perim = " + ligne.calculerPerimetre());
         Ligne ligne2 = new Ligne(new Point(1, 0), new Point(5, 5));
         Ligne ligne3 = new Ligne(new Point(2, 0), new Point(5, 5));
-
+        Ligne axeAbscisse = new Ligne(new Point(0,0), new Point(15,0));
+        Ligne axeOrdonne = new Ligne(new Point(0,0), new Point(0,15));
+        Ligne testHomothetie = new Ligne(new Point(6,10), new Point(16,8));
+        System.out.println(testHomothetie.toString());
+        testHomothetie.homothetie(0.5);
+        System.out.println(testHomothetie.toString());
         FormeGeometrique polygon = new Polygone(new Point(2, 0), new HashSet<>(Arrays.asList(ligne, ligne2, ligne3)));
         System.out.println(polygon.calculerPerimetre());
         Image image = new Image();
@@ -22,15 +27,11 @@ public class MAIN {
         image.ajoutFormes(ellipse);
         //image.ajoutFormes(polygon);
         System.out.println(image);
-        System.out.println(ligne.toString());
+        System.out.println(ligne3.toString());
         Point deplacement = new Point(1,2);
-        Point homothetie = new Point(5,3);
-        ligne.translation(deplacement);
-        System.out.println(ligne.toString());
+        ligne3.symetrieAxiale(axeAbscisse);
+        System.out.println(ligne3.toString());
         cercle.translation(deplacement);
-        ligne.homothetie(0.5,homothetie);
-        System.out.println("homothetie :");
-        System.out.println(ligne.toString());
         System.out.println(cercle.toString());
 
     }

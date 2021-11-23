@@ -28,8 +28,7 @@ public class Image {
 
     @Override
     public String toString() {
-        return "Image{" +
-                "formes=" + formes +
-                '}';
+        return "Votre Image est composé de : \n" +
+                " Formes : \n" + formes + "\n";
     }
 }

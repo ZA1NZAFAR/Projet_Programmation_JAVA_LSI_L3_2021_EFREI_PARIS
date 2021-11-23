@@ -4,11 +4,12 @@ public class Point extends FormeGeometrique {
     private double x;
     private double y;
 
-    public Point (){
+    public Point() {
         this.x = 0.;
         this.y = 0.;
     }
-    public Point(double x, double y){
+
+    public Point(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -29,7 +30,7 @@ public class Point extends FormeGeometrique {
         this.y = y;
     }
 
-    public void set(Point p){
+    public void set(Point p) {
         this.x = p.x;
         this.y = p.y;
     }
@@ -46,16 +47,35 @@ public class Point extends FormeGeometrique {
 
     @Override
     public void translation(Point deplacement) {
-
+        this.setX(deplacement.getX());
+        this.setY(deplacement.getY());
     }
 
     @Override
-    public void homothetie(double value, Point centre) {
-
+    public void homothetie(double value) {
+        this.setX(this.getX() * value);
+        this.setY(this.getY() * value);
     }
 
     @Override
     public void symetrieAxiale(Ligne axe) {
+        if (axe.getDepart().getY() == 0 && axe.getArrive().getY() == 0) { //si l'axe donné est l'abscisse
+            if (this.getX() > 0)
+                this.setX(-this.getX());
+            else
+                this.setX(Math.abs(this.getX()));
+        } else if (axe.getDepart().getX() == 0 && axe.getArrive().getX() == 0) { //si l'axe donné est l'ordonnée
+            if (this.getY() > 0)
+                this.setY(-this.getY());
+            else
+                this.setY(Math.abs(this.getY()));
+        }
+    }
 
+    @Override
+    public String toString() {
+        return "Point :" +
+                "x= " + x +
+                " , y= " + y;
     }
 }
