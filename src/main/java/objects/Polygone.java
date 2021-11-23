@@ -59,6 +59,11 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
     }
 
     @Override
+    public void symetrieCentrale(Ligne axe) {
+
+    }
+
+    @Override
     public int compareTo(Polygone o) {
         if (this.calculerPerimetre() == o.calculerPerimetre())
             return 0;

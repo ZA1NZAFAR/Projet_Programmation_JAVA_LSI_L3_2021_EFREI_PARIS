@@ -65,6 +65,11 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
         this.arrive.symetrieAxiale(axe);
     }
 
+    @Override
+    public void symetrieCentrale(Ligne axe) {
+
+    }
+
     /***
      * Permet de comparer les périmètres des lignes (longeurs)
      * @param o ligne o à comparer avec la ligne actuelle

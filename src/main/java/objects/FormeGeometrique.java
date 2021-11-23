@@ -16,6 +16,8 @@ public abstract class FormeGeometrique {
 
     public abstract void symetrieAxiale(Ligne axe);
 
+    public abstract void symetrieCentrale(Ligne axe);
+
     public void setOrientation(Constants.Orientation orientation) {
         this.orientation = orientation;
     }

@@ -1,6 +1,6 @@
 package objects;
 
-public class Point extends FormeGeometrique {
+public class Point extends FormeGeometrique implements Comparable<Point> {
     private double x;
     private double y;
 
@@ -73,9 +73,22 @@ public class Point extends FormeGeometrique {
     }
 
     @Override
+    public void symetrieCentrale(Ligne axe) {
+
+    }
+
+    @Override
     public String toString() {
         return "Point :" +
                 "x= " + x +
                 " , y= " + y;
+    }
+
+    @Override
+    public int compareTo(Point o) {
+        if (this.getX() + this.getY() < o.getX() + o.getY())
+            return 0;
+        else
+            return 1;
     }
 }

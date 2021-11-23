@@ -60,6 +60,11 @@ public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
        this.centre.symetrieAxiale(axe);
     }
 
+    @Override
+    public void symetrieCentrale(Ligne axe) {
+
+    }
+
     /***
      * Permet de comparer les périmètres de 2 cercles
      * @param o cercle o à comparer avec le cercle actuel
