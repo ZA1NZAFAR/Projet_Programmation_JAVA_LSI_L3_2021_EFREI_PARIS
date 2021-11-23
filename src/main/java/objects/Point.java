@@ -1,6 +1,6 @@
 package objects;
 
-public class Point {
+public class Point extends FormeGeometrique {
     private double x;
     private double y;
 
@@ -32,5 +32,30 @@ public class Point {
     public void set(Point p){
         this.x = p.x;
         this.y = p.y;
+    }
+
+    @Override
+    public double calculerPerimetre() {
+        return 0;
+    }
+
+    @Override
+    public double calculerAire() {
+        return 0;
+    }
+
+    @Override
+    public void translation(Point deplacement) {
+
+    }
+
+    @Override
+    public void homothetie(double value, Point centre) {
+
+    }
+
+    @Override
+    public void symetrieAxiale(Ligne axe) {
+
     }
 }

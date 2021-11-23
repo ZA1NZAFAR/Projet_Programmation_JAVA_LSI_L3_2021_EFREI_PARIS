@@ -72,7 +72,7 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
      * @param axe l'axe où la symétrie axiale sera faite
      */
     @Override
-    public void symetrieAxiale(Ligne axe) {
+    public void symetrieAxiale(Ligne axe) { // faire tourner après avoir trouvé la position
         this.depart.setX(axe.depart.getX() + this.depart.getX());
         this.depart.setY(axe.depart.getY() + this.depart.getY());
         this.arrive.setX(axe.arrive.getX() + this.arrive.getX());
