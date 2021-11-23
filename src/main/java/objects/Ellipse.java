@@ -49,6 +49,11 @@ public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
     }
 
     @Override
+    public void symetrieCentrale(Ligne axe) {
+        //TODO yet to be implemented
+    }
+
+    @Override
     public int compareTo(Ellipse o) {
         if (this.calculerPerimetre() == o.calculerPerimetre())
             return 0;
