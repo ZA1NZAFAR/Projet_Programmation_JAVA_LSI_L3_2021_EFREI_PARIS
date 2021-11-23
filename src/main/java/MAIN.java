@@ -21,8 +21,7 @@ public class MAIN {
         testHomothetie.symetrieAxiale(Axe.ABCISSE);
         System.out.println(testHomothetie.toString());
         FormeGeometrique polygon = new Polygone(new Point(2, 0), new HashSet<>(Arrays.asList(ligne, ligne2, ligne3)));
-
-
+        polygon.get
 
 
     }

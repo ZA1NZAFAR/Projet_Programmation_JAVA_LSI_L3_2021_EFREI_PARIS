@@ -1,15 +1,27 @@
 package objects;
 
+import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.GeometryFactory;
+import org.locationtech.jts.geom.Polygon;
+
 import java.util.HashSet;
 import java.util.Set;
 import static objects.Constants.Axe;
 
-public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
+public class Polygone extends Polygon implements Comparable<Polygone>,FormeGeometrique {
     private Point centre;
     private Set<Ligne> lines;
+    protected int angle;
 
+    public void rotate(int angle) {
+        this.angle += angle;
+        while (this.angle > 360) this.angle -= 360;
+        while (this.angle < 0) this.angle += 360;
+        if (this.angle % 360 == 0) this.angle = 0;
+    }
 
     public Polygone() {
+        super();
         lines = new HashSet<>();
     }
 
@@ -19,6 +31,8 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
      * @param lines set de lignes
      */
     public Polygone(Point centre, Set<Ligne> lines) {
+        Coordinate[] polygonCoordinates = (Coordinate[]) lines.toArray();
+        super(polygonCoordinates);
         this.centre = centre;
         this.lines = lines;
     }

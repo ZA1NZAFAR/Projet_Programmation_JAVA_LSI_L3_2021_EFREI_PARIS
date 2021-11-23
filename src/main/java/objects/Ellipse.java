@@ -2,9 +2,17 @@ package objects;
 
 import static objects.Constants.Axe;
 
-public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
+public class Ellipse  implements Comparable<Ellipse>,FormeGeometrique{
     private Point centre;
     private double width, height;
+    protected int angle;
+
+    public void rotate(int angle) {
+        this.angle += angle;
+        while (this.angle > 360) this.angle -= 360;
+        while (this.angle < 0) this.angle += 360;
+        if (this.angle % 360 == 0) this.angle = 0;
+    }
 
     public Ellipse(Point centre, double width, double height) {
         this.centre = centre;

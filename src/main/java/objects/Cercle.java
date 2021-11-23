@@ -1,9 +1,17 @@
 package objects;
 import static objects.Constants.Axe;
 
-public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
+public class Cercle implements Comparable<Cercle>,FormeGeometrique {
     private Point centre;
     private Double rayon;
+    protected int angle;
+
+    public void rotate(int angle) {
+        this.angle += angle;
+        while (this.angle > 360) this.angle -= 360;
+        while (this.angle < 0) this.angle += 360;
+        if (this.angle % 360 == 0) this.angle = 0;
+    }
 
     /***
      * Initialise le cercle ayant un centre et un rayon donnée

@@ -1,10 +1,20 @@
 package objects;
 
+import org.locationtech.jts.geom.Coordinate;
+
 import static objects.Constants.Axe;
 
-public class Point extends FormeGeometrique implements Comparable<Point> {
+public class Point extends Coordinate implements Comparable<Coordinate>,FormeGeometrique {
     private double x;
     private double y;
+    protected int angle;
+
+    public void rotate(int angle) {
+        this.angle += angle;
+        while (this.angle > 360) this.angle -= 360;
+        while (this.angle < 0) this.angle += 360;
+        if (this.angle % 360 == 0) this.angle = 0;
+    }
 
     public Point() {
         this.x = 0.;
@@ -84,13 +94,5 @@ public class Point extends FormeGeometrique implements Comparable<Point> {
         return "Point :" +
                 "x= " + x +
                 " , y= " + y;
-    }
-
-    @Override
-    public int compareTo(Point o) {
-        if (this.getX() + this.getY() < o.getX() + o.getY())
-            return 0;
-        else
-            return 1;
     }
 }
