@@ -1,5 +1,7 @@
 package objects;
 
+import static objects.Constants.Axe;
+
 public class Point extends FormeGeometrique implements Comparable<Point> {
     private double x;
     private double y;
@@ -58,13 +60,13 @@ public class Point extends FormeGeometrique implements Comparable<Point> {
     }
 
     @Override
-    public void symetrieAxiale(Ligne axe) {
-        if (axe.getDepart().getY() == 0 && axe.getArrive().getY() == 0) { //si l'axe donné est l'abscisse
+    public void symetrieAxiale(Axe axe) {
+        if (axe.equals(Axe.ABCISSE)) { //si l'axe donné est l'abscisse
             if (this.getX() > 0)
                 this.setX(-this.getX());
             else
                 this.setX(Math.abs(this.getX()));
-        } else if (axe.getDepart().getX() == 0 && axe.getArrive().getX() == 0) { //si l'axe donné est l'ordonnée
+        } else if (axe.equals(Axe.ORDONNEE)) { //si l'axe donné est l'ordonnée
             if (this.getY() > 0)
                 this.setY(-this.getY());
             else

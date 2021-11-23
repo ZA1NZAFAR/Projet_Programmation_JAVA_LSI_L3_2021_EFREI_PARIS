@@ -1,7 +1,8 @@
 package objects;
+import static objects.Constants.Axe;
 
 public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
-    private Point centre = new Point();
+    private Point centre;
     private Double rayon;
 
     /***
@@ -13,6 +14,7 @@ public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
         this.centre = centre;
         this.rayon = rayon;
     }
+
 
     /***
      * Calcule le périmètre du cercle
@@ -56,7 +58,7 @@ public class Cercle extends FormeGeometrique implements Comparable<Cercle> {
      * @param axe l'axe où la symétrie axiale sera faite
      */
     @Override
-    public void symetrieAxiale(Ligne axe) {
+    public void symetrieAxiale(Axe axe) {
        this.centre.symetrieAxiale(axe);
     }
 

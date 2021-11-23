@@ -2,9 +2,14 @@ package objects;
 
 
 public abstract class FormeGeometrique {
-    private Constants.Orientation orientation = Constants.Orientation.DEFAUT;
-    //private Color color;
+    protected int angle;
 
+    public void rotate(int angle) {
+        this.angle += angle;
+        while (this.angle > 360) this.angle -= 360;
+        while (this.angle < 0) this.angle += 360;
+        if (this.angle % 360 == 0) this.angle = 0;
+    }
 
     public abstract double calculerPerimetre();
 
@@ -14,17 +19,7 @@ public abstract class FormeGeometrique {
 
     public abstract void homothetie(double value);
 
-    public abstract void symetrieAxiale(Ligne axe);
+    public abstract void symetrieAxiale(Constants.Axe axe);
 
     public abstract void symetrieCentrale(Ligne axe);
-
-    public void setOrientation(Constants.Orientation orientation) {
-        this.orientation = orientation;
-    }
-
-//    public void setColor(Color color) {
-//        this.color = color;
-//    }
-
-
 }

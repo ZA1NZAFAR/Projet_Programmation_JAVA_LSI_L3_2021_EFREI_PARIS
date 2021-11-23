@@ -3,6 +3,7 @@ import objects.*;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import static objects.Constants.Axe;
 
 public class MAIN {
     public static void main(String[] args) {
@@ -14,8 +15,6 @@ public class MAIN {
         System.out.println("Ligne aire = " + ligne.calculerAire() + " perim = " + ligne.calculerPerimetre());
         Ligne ligne2 = new Ligne(new Point(1, 0), new Point(5, 5));
         Ligne ligne3 = new Ligne(new Point(2, 0), new Point(5, 5));
-        Ligne axeAbscisse = new Ligne(new Point(0,0), new Point(15,0));
-        Ligne axeOrdonne = new Ligne(new Point(0,0), new Point(0,15));
         Ligne testHomothetie = new Ligne(new Point(6,10), new Point(16,8));
         System.out.println(testHomothetie.toString());
         testHomothetie.homothetie(0.5);
@@ -29,7 +28,7 @@ public class MAIN {
         System.out.println(image);
         System.out.println(ligne3.toString());
         Point deplacement = new Point(1,2);
-        ligne3.symetrieAxiale(axeAbscisse);
+        ligne3.symetrieAxiale(Axe.ABCISSE);
         System.out.println(ligne3.toString());
         cercle.translation(deplacement);
         System.out.println(cercle.toString());

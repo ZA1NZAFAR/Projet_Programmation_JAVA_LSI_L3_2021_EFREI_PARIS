@@ -2,6 +2,7 @@ package objects;
 
 import java.util.HashSet;
 import java.util.Set;
+import static objects.Constants.Axe;
 
 public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
     private Point centre;
@@ -52,7 +53,7 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
     }
 
     @Override
-    public void symetrieAxiale(Ligne axe) {
+    public void symetrieAxiale(Axe axe) {
         for (Ligne line : lines) {
             line.symetrieAxiale(axe);
         }

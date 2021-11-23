@@ -1,5 +1,6 @@
 package objects;
 
+import static objects.Constants.Axe;
 
 public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
     private Point depart, arrive;
@@ -60,7 +61,7 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
      * @param axe l'axe où la symétrie axiale sera faite
      */
     @Override
-    public void symetrieAxiale(Ligne axe) {
+    public void symetrieAxiale(Axe axe) {
         this.depart.symetrieAxiale(axe);
         this.arrive.symetrieAxiale(axe);
     }
