@@ -14,7 +14,7 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
     public Ligne(Point depart, Point arrive) {
         this.depart = depart;
         this.arrive = arrive;
-        this.longeur = Math.sqrt(Math.pow(2,(arrive.getX()-depart.getX())) + Math.pow(2,(arrive.getY()-depart.getY())));
+        this.longeur = Math.sqrt(Math.pow(2, (arrive.getX() - depart.getX())) + Math.pow(2, (arrive.getY() - depart.getY())));
     }
 
     /***
@@ -99,7 +99,7 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
     @Override
     public String toString() {
         return "Ligne : \n" +
-                " Point de depart = " + depart.getX() + "," + depart.getY()+
+                " Point de depart = " + depart.getX() + "," + depart.getY() +
                 "\n Point d'arrive=" + arrive.getX() + "," + arrive.getY() +
                 "\n Longeur =" + longeur + "\n";
     }

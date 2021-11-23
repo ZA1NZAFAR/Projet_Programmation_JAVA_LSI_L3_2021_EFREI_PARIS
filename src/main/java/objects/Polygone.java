@@ -5,6 +5,7 @@ import org.locationtech.jts.geom.Polygon;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import static objects.Constants.Axe;
 
 public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
@@ -38,8 +39,7 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
 
     @Override
     public double calculerAire() {
-        Polygon p = new GeometryFactory().createPolygon(Tools.linePointsToCoordinates(lines));
-        return p.getArea();
+        return new GeometryFactory().createPolygon(Tools.linePointsToCoordinates(lines)).getArea();
     }
 
     @Override

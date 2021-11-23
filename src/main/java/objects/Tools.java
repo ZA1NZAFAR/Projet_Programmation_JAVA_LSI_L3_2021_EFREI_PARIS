@@ -17,7 +17,7 @@ public class Tools {
                 res.add(new Coordinate(ligne.getArrive().getX(), ligne.getArrive().getY()));
             }
         }
-        res.add(new Coordinate(temp.get(0).getDepart().getX(),temp.get(0).getDepart().getY()));
+        res.add(new Coordinate(temp.get(0).getDepart().getX(), temp.get(0).getDepart().getY()));
         return res.stream().toArray(Coordinate[]::new);
     }
 }

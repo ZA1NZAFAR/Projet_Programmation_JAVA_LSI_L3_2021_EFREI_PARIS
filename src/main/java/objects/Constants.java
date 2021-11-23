@@ -5,9 +5,11 @@ public class Constants {
         ABCISSE("abcisse"),
         ORDONNEE("ordonnee");
         private final String axe;
+
         Axe(String axe) {
             this.axe = axe;
         }
+
         public String toString() {
             return axe;
         }
