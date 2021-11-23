@@ -12,6 +12,11 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
         lines = new HashSet<>();
     }
 
+    /***
+     * Initialise un polygone avec un centre et un Set de lignes pour éviter les duplicats
+     * @param centre centre du polygone
+     * @param lines set de lignes
+     */
     public Polygone(Point centre, Set<Ligne> lines) {
         this.centre = centre;
         this.lines = lines;

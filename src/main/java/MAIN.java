@@ -10,7 +10,7 @@ public class MAIN {
         System.out.println("cercle aire = " + cercle.calculerAire() + " perim = " + cercle.calculerPerimetre());
         FormeGeometrique ellipse = new Ellipse(new Point(0, 0), 5, 7);
         System.out.println("Ellipse aire = " + ellipse.calculerAire() + " perim = " + ellipse.calculerPerimetre());
-        Ligne ligne = new Ligne(new Point(0, 0), new Point(0, 2));
+        Ligne ligne = new Ligne(new Point(0, 0), new Point(1, 1));
         System.out.println("Ligne aire = " + ligne.calculerAire() + " perim = " + ligne.calculerPerimetre());
         Ligne ligne2 = new Ligne(new Point(1, 0), new Point(5, 5));
         Ligne ligne3 = new Ligne(new Point(2, 0), new Point(5, 5));
@@ -22,12 +22,14 @@ public class MAIN {
         image.ajoutFormes(ellipse);
         //image.ajoutFormes(polygon);
         System.out.println(image);
+        System.out.println(ligne.toString());
         Point deplacement = new Point(1,2);
         Point homothetie = new Point(5,3);
-        //ligne.translation(deplacement);
+        ligne.translation(deplacement);
         System.out.println(ligne.toString());
         cercle.translation(deplacement);
         ligne.homothetie(0.5,homothetie);
+        System.out.println("homothetie :");
         System.out.println(ligne.toString());
         System.out.println(cercle.toString());
 

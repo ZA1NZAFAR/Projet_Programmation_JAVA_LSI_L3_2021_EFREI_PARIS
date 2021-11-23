@@ -51,7 +51,7 @@ public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
     @Override
     public String toString() {
         return "Ellipse{" +
-                "centre=" + centre +
+                "centre=" + centre.getX() + "," +centre.getY() +
                 ", width=" + width +
                 ", height=" + height +
                 '}';

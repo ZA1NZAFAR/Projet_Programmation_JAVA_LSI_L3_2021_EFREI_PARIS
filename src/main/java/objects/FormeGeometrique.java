@@ -1,10 +1,10 @@
 package objects;
 
-import java.awt.*;
 
 public abstract class FormeGeometrique {
     private Constants.Orientation orientation = Constants.Orientation.DEFAUT;
-    private Color color;
+    //private Color color;
+
 
     public abstract double calculerPerimetre();
 
@@ -20,9 +20,9 @@ public abstract class FormeGeometrique {
         this.orientation = orientation;
     }
 
-    public void setColor(Color color) {
-        this.color = color;
-    }
+//    public void setColor(Color color) {
+//        this.color = color;
+//    }
 
 
 }
