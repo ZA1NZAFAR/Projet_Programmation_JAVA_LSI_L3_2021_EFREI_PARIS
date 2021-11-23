@@ -1,9 +1,11 @@
 package objects;
 
+import iface.Geometricable;
+
 import java.util.HashSet;
 import java.util.Set;
 
-import static objects.Constants.Axe;
+import static tools.Constants.Axe;
 
 public class Dessin implements Geometricable {
     Set<Image> images;

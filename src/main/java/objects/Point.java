@@ -1,6 +1,6 @@
 package objects;
 
-import static objects.Constants.Axe;
+import static tools.Constants.Axe;
 
 public class Point extends FormeGeometrique implements Comparable<Point> {
     private double x;

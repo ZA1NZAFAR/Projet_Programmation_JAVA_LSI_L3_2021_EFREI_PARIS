@@ -1,12 +1,12 @@
 package objects;
 
 import org.locationtech.jts.geom.GeometryFactory;
-import org.locationtech.jts.geom.Polygon;
+import tools.Tools;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import static objects.Constants.Axe;
+import static tools.Constants.Axe;
 
 public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
     private Point centre;
@@ -72,12 +72,7 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
 
     @Override
     public int compareTo(Polygone o) {
-        if (this.calculerPerimetre() == o.calculerPerimetre())
-            return 0;
-        else if (this.calculerPerimetre() < o.calculerPerimetre())
-            return -1;
-        else
-            return 1;
+        return Double.compare(this.calculerPerimetre(), o.calculerPerimetre());
     }
 
     @Override

@@ -10,7 +10,10 @@ public class MAIN {
         Ligne ligne2 = new Ligne(new Point(3, 0), new Point(3, 2));
         Ligne ligne3 = new Ligne(new Point(3, 2), new Point(1, 9));
 
-        FormeGeometrique polygon = new Polygone(new Point(0, 0), new HashSet<>(Arrays.asList(ligne2, ligne3, ligne,ligne4)));
+        FormeGeometrique polygon = new Polygone(new Point(0, 0), new HashSet<>(Arrays.asList(ligne2, ligne3, ligne, ligne4)));
+        System.out.println(polygon.calculerAire());
+        polygon.homothetie(2);
+        polygon.rotate(90);
         System.out.println(polygon.calculerAire());
         polygon.homothetie(2);
         polygon.rotate(90);

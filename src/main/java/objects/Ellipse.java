@@ -1,6 +1,6 @@
 package objects;
 
-import static objects.Constants.Axe;
+import static tools.Constants.Axe;
 
 public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
     private Point centre;
@@ -55,12 +55,7 @@ public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
 
     @Override
     public int compareTo(Ellipse o) {
-        if (this.calculerPerimetre() == o.calculerPerimetre())
-            return 0;
-        else if (this.calculerPerimetre() < o.calculerPerimetre())
-            return -1;
-        else
-            return 1;
+        return Double.compare(this.calculerPerimetre(), o.calculerPerimetre());
     }
 
     @Override

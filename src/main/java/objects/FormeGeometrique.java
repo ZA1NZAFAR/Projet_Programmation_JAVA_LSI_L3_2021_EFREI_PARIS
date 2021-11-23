@@ -1,8 +1,8 @@
 package objects;
 
-import static objects.Constants.Axe;
+import iface.Geometricable;
 
-public abstract class FormeGeometrique implements Geometricable{
+public abstract class FormeGeometrique implements Geometricable {
     protected int angle;
 
     public void rotate(int angle) {

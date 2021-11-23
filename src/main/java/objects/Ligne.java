@@ -1,6 +1,6 @@
 package objects;
 
-import static objects.Constants.Axe;
+import static tools.Constants.Axe;
 
 public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
     private Point depart, arrive;
@@ -81,11 +81,7 @@ public class Ligne extends FormeGeometrique implements Comparable<Ligne> {
      */
     @Override
     public int compareTo(Ligne o) {
-        if (this.calculerPerimetre() == o.calculerPerimetre())
-            return 0;
-        else if (this.calculerPerimetre() < o.calculerPerimetre())
-            return -1;
-        else return 1;
+        return Double.compare(this.calculerPerimetre(), o.calculerPerimetre());
     }
 
     public Point getDepart() {

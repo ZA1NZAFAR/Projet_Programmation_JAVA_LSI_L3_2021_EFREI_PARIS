@@ -1,9 +1,11 @@
 package objects;
 
+import iface.Geometricable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import static objects.Constants.Axe;
+import static tools.Constants.Axe;
 
 public class Image implements Geometricable {
     List<FormeGeometrique> formes;

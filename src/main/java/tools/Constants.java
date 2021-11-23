@@ -1,4 +1,4 @@
-package objects;
+package tools;
 
 public class Constants {
     public enum Axe {

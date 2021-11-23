@@ -1,7 +1,9 @@
 package objects;
-import static objects.Constants.Axe;
+import iface.Geometricable;
 
-public class Cercle extends FormeGeometrique implements Comparable<Cercle>,Geometricable {
+import static tools.Constants.Axe;
+
+public class Cercle extends FormeGeometrique implements Comparable<Cercle>, Geometricable {
     private Point centre;
     private Double rayon;
 
@@ -76,12 +78,7 @@ public class Cercle extends FormeGeometrique implements Comparable<Cercle>,Geome
      */
     @Override
     public int compareTo(Cercle o) {
-        if (this.calculerPerimetre() == o.calculerPerimetre())
-            return 0;
-        else if (this.calculerPerimetre() < o.calculerPerimetre())
-            return -1;
-        else
-            return 1;
+        return Double.compare(this.calculerPerimetre(), o.calculerPerimetre());
     }
 
     @Override

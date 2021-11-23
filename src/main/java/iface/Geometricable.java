@@ -1,4 +1,7 @@
-package objects;
+package iface;
+
+import tools.Constants;
+import objects.Point;
 
 public interface Geometricable {
     double calculerPerimetre();
