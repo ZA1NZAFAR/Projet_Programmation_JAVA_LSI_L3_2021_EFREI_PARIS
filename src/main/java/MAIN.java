@@ -1,7 +1,6 @@
 import objects.Image;
 import objects.*;
 
-import java.awt.*;
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -32,7 +31,11 @@ public class MAIN {
 
         cercle.translation(deplacement);
         //ligne.homothetie(3,homothetie);
+<<<<<<< Updated upstream
       //  System.out.println(ligne.toString());
+=======
+        //  System.out.println(ligne.toString());
+>>>>>>> Stashed changes
         System.out.println(cercle.toString());
 
     }
