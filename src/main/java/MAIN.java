@@ -48,9 +48,14 @@ public class MAIN {
         monImage.ajoutFormes(getNewPolygone());
         monImage.ajoutFormes(getNewPolygone());
 
+        System.out.println("Avant");
+        System.out.println(monImage);
         monImage.trierParPerimetre();
+        System.out.println("Apres trie par perimetre");
+        System.out.println(monImage);
         monImage.trierParAire();
-        System.out.println("asdasdasd,ankjhka");
+        System.out.println("Apres trie par l'aire");
+        System.out.println(monImage);
 
 
     }
