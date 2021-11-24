@@ -31,9 +31,9 @@ public abstract class FormeGeometrique implements Comparable<FormeGeometrique>, 
     @Override
     public int compareTo(FormeGeometrique other) {
         switch (this.triePar) {
-            case AIRE:
-                return Double.compare(this.calculerPerimetre(), other.calculerPerimetre());
             case PERIMETRE:
+                return Double.compare(this.calculerPerimetre(), other.calculerPerimetre());
+            case AIRE:
                 return Double.compare(this.calculerAire(), other.calculerAire());
             default:
                 throw new IllegalArgumentException();
