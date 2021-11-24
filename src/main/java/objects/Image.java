@@ -4,14 +4,14 @@ import iface.Geometricable;
 import tools.Constants;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 import static tools.Constants.Axe;
 
-public class Image implements Geometricable {
+public class Image implements Geometricable, Comparable<Image> {
     List<FormeGeometrique> formes;
+    private Constants.TriePar triePar;
 
 
     public Image() {
@@ -87,12 +87,51 @@ public class Image implements Geometricable {
         }
     }
 
+    public void setTriePar(Constants.TriePar par) {
+        for (FormeGeometrique forme : formes) {
+            forme.setTriePar(par);
+        }
+    }
+
     public void trierParPerimetre() {
+        this.triePar = Constants.TriePar.PERIMETRE;
         for (FormeGeometrique forme : formes) {
             forme.setTriePar(Constants.TriePar.PERIMETRE);
         }
         Collections.sort(formes);
     }
+
+    public void trierParAire() {
+        this.triePar = Constants.TriePar.AIRE;
+        for (FormeGeometrique forme : formes) {
+            forme.setTriePar(Constants.TriePar.AIRE);
+        }
+        Collections.sort(formes);
+    }
+
+    @Override
+    public String toString() {
+        String s = "[";
+        for (FormeGeometrique formeGeometrique : formes) {
+            s += formeGeometrique.toString() + "\n";
+        }
+        s += "]";
+        return s;
+    }
+
+
+    @Override
+    public int compareTo(Image o) {
+        switch (this.triePar) {
+            case AIRE:
+                return Double.compare(this.calculerPerimetre(), o.calculerPerimetre());
+            case PERIMETRE:
+                return Double.compare(this.calculerAire(), o.calculerAire());
+            default:
+                throw new IllegalArgumentException();
+        }
+    }
+
 
     public List<FormeGeometrique> getFormes() {
         return formes;
@@ -100,12 +139,5 @@ public class Image implements Geometricable {
 
     public void setFormes(List<FormeGeometrique> formes) {
         this.formes = formes;
-    }
-
-    @Override
-    public String toString() {
-        return "Image{" +
-                "formes=" + formes +
-                '}';
     }
 }

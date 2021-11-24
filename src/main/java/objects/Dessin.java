@@ -4,12 +4,15 @@ import iface.Geometricable;
 import tools.Constants;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static tools.Constants.Axe;
 
 public class Dessin implements Geometricable {
     List<Image> images;
+    private Constants.TriePar triePar;
+
 
     public Dessin(List<Image> formes) {
         this.images = formes;
@@ -88,18 +91,38 @@ public class Dessin implements Geometricable {
         }
     }
 
+
+    public void trierParPerimetre() {
+        this.triePar = Constants.TriePar.PERIMETRE;
+        for (Image img : images) {
+            img.trierParPerimetre();
+        }
+        Collections.sort(images);
+    }
+
+    public void trierParAire() {
+        this.triePar = Constants.TriePar.AIRE;
+        for (Image img : images) {
+            img.trierParAire();
+        }
+        Collections.sort(images);
+    }
+
+    @Override
+    public String toString() {
+        String s = "[";
+        for (Image image : images) {
+            s += image.toString() + "\n";
+        }
+        s += "]";
+        return s;
+    }
+
     public List<Image> getImages() {
         return images;
     }
 
     public void setImages(List<Image> images) {
         this.images = images;
-    }
-
-    @Override
-    public String toString() {
-        return "Dessin{" +
-                "images=" + images +
-                '}';
     }
 }

@@ -81,11 +81,11 @@ public class Point extends FormeGeometrique {
 
     @Override
     public String toString() {
-        return "Point :" +
+        return "[Point :" +
                 "x= " + x +
                 " , y= " + y +
                 " , Perimetre= " + calculerPerimetre() +
-                " , Aire= " + calculerAire();
+                " , Aire= " + calculerAire() + "]";
     }
 
 }

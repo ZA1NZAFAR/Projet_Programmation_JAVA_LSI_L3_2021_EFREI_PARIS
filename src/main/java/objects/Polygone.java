@@ -66,12 +66,12 @@ public class Polygone extends FormeGeometrique {
 
     @Override
     public String toString() {
-        return "Polygone{" +
+        return "[Polygone{" +
                 "centre=" + centre +
                 ", lines=" + lines +
                 '}' +
-                "\n Perimetre=" + calculerPerimetre() +
-                "\n Aire=" + calculerAire() + "\n";
+                " Perimetre=" + calculerPerimetre() +
+                " Aire=" + calculerAire() + "]";
     }
 
     //Getters et Setters

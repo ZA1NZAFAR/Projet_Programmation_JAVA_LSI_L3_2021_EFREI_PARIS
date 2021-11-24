@@ -6,7 +6,7 @@ import static tools.Constants.TriePar;
 
 public abstract class FormeGeometrique implements Comparable<FormeGeometrique>, Geometricable {
     private int angle;
-    private TriePar triePar;
+    private TriePar triePar = TriePar.PERIMETRE;
 
     @Override
     public void rotate(int angle) {
@@ -21,6 +21,7 @@ public abstract class FormeGeometrique implements Comparable<FormeGeometrique>, 
     }
 
     /***
+     * implementation du l'interface comparable
      * Permet de comparer les périmètres de 2 cercles
      * @param other cercle o à comparer avec le cercle actuel
      * @return 0 si le périmètre/aire est égale

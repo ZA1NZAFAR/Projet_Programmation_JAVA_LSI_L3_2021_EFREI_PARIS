@@ -60,10 +60,12 @@ public class Ellipse extends FormeGeometrique {
 
     @Override
     public String toString() {
-        return "Ellipse :" +
-                "\n Centre=" + centre.getX() + "," + centre.getY() +
-                "\n Width=" + width +
-                "\n Height=" + height + "\n";
+        return "[Ellipse :" +
+                " Centre=" + centre.getX() + "," + centre.getY() +
+                " Width=" + width +
+                " Perimetre=" + calculerPerimetre() +
+                " Aire=" + calculerAire() +
+                " Height=" + height + "]";
     }
 
     public Point getCentre() {

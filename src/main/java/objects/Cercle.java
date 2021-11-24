@@ -44,11 +44,11 @@ public class Cercle extends FormeGeometrique {
 
     @Override
     public String toString() {
-        return "Cercle :" +
-                "\n Centre=" + centre.getX() + "," + centre.getY() +
-                "\n Rayon=" + rayon +
-                "\n Aire=" + this.calculerAire() +
-                "\n Perimetre=" + this.calculerPerimetre() + "\n";
+        return "[Cercle :" +
+                " Centre=" + centre.getX() + "," + centre.getY() +
+                " Rayon=" + rayon +
+                " Aire=" + this.calculerAire() +
+                " Perimetre=" + this.calculerPerimetre() + "]";
     }
 
     //Getters et Setters

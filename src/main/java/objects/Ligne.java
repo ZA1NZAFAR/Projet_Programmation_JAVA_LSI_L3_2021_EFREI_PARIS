@@ -57,12 +57,12 @@ public class Ligne extends FormeGeometrique {
 
     @Override
     public String toString() {
-        return "Ligne : \n" +
+        return "[Ligne : " +
                 " Point de depart = " + depart.getX() + "," + depart.getY() +
-                "\n Point d'arrive=" + arrive.getX() + "," + arrive.getY() +
-                "\n Longeur =" + longeur +
-                "\n Perimetre =" + calculerPerimetre() +
-                "\n Aire =" + calculerAire() + "\n";
+                " Point d'arrive=" + arrive.getX() + "," + arrive.getY() +
+                " Longeur =" + longeur +
+                " Perimetre =" + calculerPerimetre() +
+                " Aire =" + calculerAire() + "]";
     }
 
     public void setDepart(Point depart) {
