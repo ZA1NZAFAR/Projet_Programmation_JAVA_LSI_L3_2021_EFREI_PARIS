@@ -20,6 +20,7 @@ public class Image implements Geometricable, Comparable<Image> {
 
     /***
      * Permet d'ajouter une forme dans l'image sans avoir des doublons
+     * @param formeGeometrique le nouveau forme a ajouter dans l'image
      */
     public void ajoutFormes(FormeGeometrique formeGeometrique) {
         if (formes.contains(formeGeometrique))

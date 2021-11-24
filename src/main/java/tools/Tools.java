@@ -8,6 +8,11 @@ import java.util.List;
 import java.util.Set;
 
 public class Tools {
+    /***
+     * Cette methode prend toutes les lignes composant un polygon et renvoi les point unique de poilygon.
+     * @param lignes les lignes qui compose un polygon
+     * @return les point unique de poilygon
+     */
     public static Coordinate[] linePointsToCoordinates(Set<Ligne> lignes) {
         List<Ligne> temp = new ArrayList<>(lignes);
         List<Coordinate> res = new ArrayList<>();

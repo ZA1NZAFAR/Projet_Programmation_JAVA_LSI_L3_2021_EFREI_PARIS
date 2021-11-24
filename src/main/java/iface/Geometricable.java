@@ -1,7 +1,7 @@
 package iface;
 
-import tools.Constants;
 import objects.Point;
+import tools.Constants;
 
 public interface Geometricable {
     /***
@@ -41,6 +41,7 @@ public interface Geometricable {
 
     /***
      * Permet de changer la critere de trie i.e Trie par l'aire ou trie par perimetre
+     * @param par le type de trie (par l'aire ou par perimetre)
      */
     void changeTrieType(Constants.TriePar par);
 

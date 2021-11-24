@@ -24,6 +24,7 @@ public class Dessin implements Geometricable {
 
     /***
      * Permet d'ajouter une image dans le dessin sans avoir des doublons
+     * @param image la nouvelle image a ajouter dans le dessin
      */
     public void ajouterImage(Image image) {
         if (images.contains(image))
