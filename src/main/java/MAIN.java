@@ -15,6 +15,7 @@ public class MAIN {
 
         monImage.trierParPerimetre();
         monImage.trierParAire();
+        System.out.println("asdasdasd,ankjhka");
     }
 
     public static Point getNewPoint() {
