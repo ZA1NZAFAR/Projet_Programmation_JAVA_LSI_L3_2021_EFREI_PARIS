@@ -2,7 +2,7 @@ package objects;
 
 import static tools.Constants.Axe;
 
-public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
+public class Ellipse extends FormeGeometrique {
     private Point centre;
     private double width, height;
 
@@ -53,10 +53,10 @@ public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
         this.width = tmp;
     }
 
-    @Override
-    public int compareTo(Ellipse o) {
-        return Double.compare(this.calculerPerimetre(), o.calculerPerimetre());
-    }
+//    @Override
+//    public int compareTo(Ellipse o) {
+//        return Double.compare(this.calculerPerimetre(), o.calculerPerimetre());
+//    }
 
     @Override
     public String toString() {
@@ -64,5 +64,29 @@ public class Ellipse extends FormeGeometrique implements Comparable<Ellipse> {
                 "\n Centre=" + centre.getX() + "," + centre.getY() +
                 "\n Width=" + width +
                 "\n Height=" + height + "\n";
+    }
+
+    public Point getCentre() {
+        return centre;
+    }
+
+    public void setCentre(Point centre) {
+        this.centre = centre;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
     }
 }

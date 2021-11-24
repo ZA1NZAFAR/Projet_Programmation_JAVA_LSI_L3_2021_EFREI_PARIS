@@ -2,7 +2,7 @@ package objects;
 
 import static tools.Constants.Axe;
 
-public class Point extends FormeGeometrique implements Comparable<Point> {
+public class Point extends FormeGeometrique {
     private double x;
     private double y;
 
@@ -83,14 +83,9 @@ public class Point extends FormeGeometrique implements Comparable<Point> {
     public String toString() {
         return "Point :" +
                 "x= " + x +
-                " , y= " + y;
+                " , y= " + y +
+                " , Perimetre= " + calculerPerimetre() +
+                " , Aire= " + calculerAire();
     }
 
-    @Override
-    public int compareTo(Point o) {
-        if (this.getX() + this.getY() < o.getX() + o.getY())
-            return 0;
-        else
-            return 1;
-    }
 }

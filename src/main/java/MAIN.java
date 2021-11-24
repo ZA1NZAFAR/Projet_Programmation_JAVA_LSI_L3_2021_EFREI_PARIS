@@ -11,13 +11,22 @@ public class MAIN {
         Ligne ligne3 = new Ligne(new Point(3, 2), new Point(1, 9));
 
         FormeGeometrique polygon = new Polygone(new Point(0, 0), new HashSet<>(Arrays.asList(ligne2, ligne3, ligne, ligne4)));
-        System.out.println(polygon.calculerAire());
-        polygon.homothetie(2);
-        polygon.rotate(90);
-        System.out.println(polygon.calculerAire());
-        polygon.homothetie(2);
-        polygon.rotate(90);
-        System.out.println(polygon.calculerAire());
+        FormeGeometrique polygonGr = polygon;
+        polygonGr.homothetie(2);
+
+
+        Image image = new Image();
+        image.ajoutFormes(ligne);
+        image.ajoutFormes(ligne2);
+        image.ajoutFormes(polygonGr);
+        image.ajoutFormes(ligne3);
+        image.ajoutFormes(ligne4);
+        image.ajoutFormes(polygon);
+        System.out.println(image.getFormes().toString());
+        System.out.println("---------------------------------------------");
+        image.trierParPerimetre();
+        System.out.println(image.getFormes().toString());
+
 
     }
 }

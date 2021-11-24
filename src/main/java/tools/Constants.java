@@ -14,4 +14,18 @@ public class Constants {
             return axe;
         }
     }
+
+    public enum TriePar {
+        PERIMETRE("preimetre"),
+        AIRE("aire");
+        private final String par;
+
+        TriePar(String par) {
+            this.par = par;
+        }
+
+        public String toString() {
+            return par;
+        }
+    }
 }

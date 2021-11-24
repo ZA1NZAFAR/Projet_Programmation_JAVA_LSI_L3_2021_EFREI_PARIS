@@ -8,7 +8,7 @@ import java.util.Set;
 
 import static tools.Constants.Axe;
 
-public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
+public class Polygone extends FormeGeometrique {
     private Point centre;
     private Set<Ligne> lines;
 
@@ -17,16 +17,10 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
         lines = new HashSet<>();
     }
 
-    /***
-     * Initialise un polygone avec un centre et un Set de lignes pour éviter les duplicats
-     * @param centre centre du polygone
-     * @param lines set de lignes
-     */
     public Polygone(Point centre, Set<Ligne> lines) {
         this.centre = centre;
         this.lines = lines;
     }
-
 
     @Override
     public double calculerPerimetre() {
@@ -71,15 +65,30 @@ public class Polygone extends FormeGeometrique implements Comparable<Polygone> {
     }
 
     @Override
-    public int compareTo(Polygone o) {
-        return Double.compare(this.calculerPerimetre(), o.calculerPerimetre());
+    public String toString() {
+        return "Polygone{" +
+                "centre=" + centre +
+                ", lines=" + lines +
+                '}' +
+                "\n Perimetre=" + calculerPerimetre() +
+                "\n Aire=" + calculerAire() + "\n";
     }
 
-    @Override
-    public String toString() {
-        return "Polygone :" +
-                "\n Centre=" + centre +
-                "\n Lines=" + lines +
-                "\n";
+    //Getters et Setters
+
+    public Point getCentre() {
+        return centre;
+    }
+
+    public void setCentre(Point centre) {
+        this.centre = centre;
+    }
+
+    public Set<Ligne> getLines() {
+        return lines;
+    }
+
+    public void setLines(Set<Ligne> lines) {
+        this.lines = lines;
     }
 }
