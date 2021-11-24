@@ -1,7 +1,6 @@
 package objects;
 
 import iface.Geometricable;
-import tools.Constants;
 
 import static tools.Constants.TriePar;
 
@@ -39,7 +38,6 @@ public abstract class FormeGeometrique implements Comparable<FormeGeometrique>, 
                 throw new IllegalArgumentException();
         }
     }
-
 
     public int getAngle() {
         return angle;
