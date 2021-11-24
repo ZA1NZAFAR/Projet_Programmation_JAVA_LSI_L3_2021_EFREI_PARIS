@@ -12,15 +12,14 @@ public class MAIN {
 
         FormeGeometrique polygon = new Polygone(new Point(0, 0), new HashSet<>(Arrays.asList(ligne2, ligne3, ligne, ligne4)));
         FormeGeometrique polygonGr = polygon;
+        FormeGeometrique polygonPlGr = polygonGr;
         polygonGr.homothetie(2);
+        polygonPlGr.homothetie(2);
 
 
         Image image = new Image();
-        image.ajoutFormes(ligne);
-        image.ajoutFormes(ligne2);
         image.ajoutFormes(polygonGr);
-        image.ajoutFormes(ligne3);
-        image.ajoutFormes(ligne4);
+        image.ajoutFormes(polygonPlGr);
         image.ajoutFormes(polygon);
         System.out.println(image.getFormes().toString());
         System.out.println("---------------------------------------------");

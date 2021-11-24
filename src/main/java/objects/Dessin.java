@@ -23,7 +23,7 @@ public class Dessin implements Geometricable {
      * Permet d'ajouter une image dans le dessin sans avoir des doublons
      */
     public void ajouterImage(Image image) {
-        if (!images.contains(image))
+        if (images.contains(image))
             throw new IllegalArgumentException("Les doublons ne sont pas permis!");
         images.add(image);
     }

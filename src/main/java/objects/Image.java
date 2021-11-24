@@ -22,7 +22,7 @@ public class Image implements Geometricable {
      * Permet d'ajouter une forme dans l'image sans avoir des doublons
      */
     public void ajoutFormes(FormeGeometrique formeGeometrique) {
-        if (!formes.contains(formeGeometrique))
+        if (formes.contains(formeGeometrique))
             throw new IllegalArgumentException("Les doublons ne sont pas permis!");
         formes.add(formeGeometrique);
     }
